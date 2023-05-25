@@ -3,6 +3,7 @@ import Login from "./pages/login/Login";
 import List from "./pages/list/List";
 import Listchauf from "./pages/listchauf/Listchauf"
 import ListClient from "./pages/ListClient/ListClient";
+import ListTraif from "./pages/ListTarif/ListTraif";
 import Single from "./pages/single/Single";
 import SingleC from "./pages/singlechauf/SingleC";
 import New from "./pages/new/New";
@@ -77,6 +78,10 @@ function App() {
                 path="newCL"
                 element={ isLoggedIn ?<NewClient  title="Ajouté Nouveau Client" /> : <Landingpage/>}
               />
+            </Route>
+            <Route path="Tarif">
+              <Route index element={isLoggedIn ?<ListTraif /> : <Landingpage/>} />
+             
             </Route>
 
             <Route path="Rec">

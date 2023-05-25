@@ -74,10 +74,12 @@ const Sidebar = () => {
             </li>
           </Link>
          
+          <Link to="/Tarif" style={{ textDecoration: "none" }}>
           <li>
             <LocalShippingIcon className="icon" />
             <span>Tarifs</span>
           </li>
+          </Link>
 
           <p className="title">LISTS DES COMPTES Désactivé</p>
           {(role === "Admin" || role === "Agentad") && (
@@ -111,13 +113,15 @@ const Sidebar = () => {
               <span>Réclamation a traité</span>
             </li>
           </Link>
-          
-            <Link to="/Rec/NewRec" style={{ textDecoration: "none" }}>
-            <li>
-              <NotificationAddIcon className="icon" />
-              <span>Envoyé Une Réclamation</span>
-            </li>
-          </Link>
+          {!(role === "Admin" || role === "Agentad") && (
+  <Link to="/Rec/NewRec" style={{ textDecoration: "none", color: "inherit" }}>
+    <li>
+      <NotificationAddIcon className="icon" />
+      <span>Envoyé Une Réclamation</span>
+    </li>
+  </Link>
+)}
+
           
         
         
@@ -135,10 +139,10 @@ const Sidebar = () => {
           </li>
           
           <p className="title">USER</p>
-          <li>
+          {/* <li>
             <AccountCircleOutlinedIcon className="icon" />
             <span>Profile</span>
-          </li>
+          </li> */}
           <li>
             <ExitToAppIcon className="icon" />
             <span onClick={logout}>Logout</span>

@@ -33,6 +33,9 @@ const isLoggedIn = window.localStorage.getItem("isLoggedIn")
           window.localStorage.setItem('user',JSON.stringify(response))
           localStorage.setItem("isLoggedIn", true);
           localStorage.setItem("userRole", user.role);
+          localStorage.setItem("userNom", user.Nom);
+          localStorage.setItem("userPrenom", user.Prenom);
+          localStorage.setItem("userAvatar", user.photoAvatar);
           localStorage.setItem("userId", user.id);
           if (user.role === "Admin") {
             navigate("/home");

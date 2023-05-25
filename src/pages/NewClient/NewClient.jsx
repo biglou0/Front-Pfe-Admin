@@ -32,6 +32,22 @@ const NewClient = () => {
 
       console.log("fileeeeee",data)
     
+      const phoneRegex = /^[0-9]{8}$/;
+      if (!phoneRegex.test(phone)) {
+        toast.error('Phone number must be 8 digits.', {
+          position: toast.POSITION.TOP_RIGHT
+        });
+        return;
+      }
+      const CinRegex = /^[0-9]{8}$/;
+      if (!CinRegex.test(cnicNo)) {
+        toast.error('Cin number must be 8 digits.', {
+          position: toast.POSITION.TOP_RIGHT
+        });
+        return;
+      }
+
+      
         // Handle validations
         axios
           .post("http://localhost:3001/Client/AjoutCl", { Nom, Prenom, email, phone,photoAvatar,gender ,DateNaissance ,Nationalite  , cnicNo ,address}

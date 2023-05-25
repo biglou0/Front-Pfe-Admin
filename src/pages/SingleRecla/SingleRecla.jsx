@@ -131,7 +131,7 @@ const SingleC = () => {
                     <div>
                     {role === "Admin" || role === "Agentad" ? (
   <div className="deleteButton" onClick={() => handleSubmite()}>
-    Términer Cette Réclamation
+    Résoudre cette réclamation
   </div>
 ) : null}
     </div>

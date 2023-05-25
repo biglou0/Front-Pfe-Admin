@@ -92,9 +92,16 @@ const DataClient = () => {
         </div>
         <DataGrid
           className="datagrid"
-          rows={data.filter((val => {
-            return val.Nom.includes(search)
-          }))}
+          rows={data.filter((val) => {
+            const searchTerm = search.toLowerCase();
+            const chauffName = val.Nom.toLowerCase();
+            const chauffprenom = val.Prenom.toLowerCase();
+            const chauffphone = val.phone.toLowerCase();
+            
+            return chauffName.includes(searchTerm) || 
+            chauffprenom.includes(searchTerm) ||
+            chauffphone.includes(searchTerm);
+          })}
           columns={ClientColumns.concat(actionColumn)}
           pageSize={9}
           rowsPerPageOptions={[9]}

@@ -9,13 +9,29 @@ import { useContext } from "react";
 const Navbar = () => {
   const { dispatch } = useContext(DarkModeContext);
 
+
+  const photo = window.localStorage.getItem("userAvatar");
+  const Nom = window.localStorage.getItem("userNom");
+  const Prenom = window.localStorage.getItem("userPrenom");
+  const role = window.localStorage.getItem("userRole");
+
   return (
     <div className="navbar">
       <div className="wrapper">
-        <div className="search">
+
+      <img
+                    src={photo}
+                    alt=""
+                    className="itemImg"
+                  />
+                  
+<h1 className="itemTitle">{Nom} {Prenom}</h1>
+<span className="itemValue">{role}</span>
+
+        {/* <div className="search">
           <input type="text" placeholder="Search..." />
           <SearchOutlinedIcon />
-        </div>
+        </div> */}
         <div className="items">
          
           <div className="item">

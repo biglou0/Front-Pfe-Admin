@@ -66,6 +66,15 @@ const onChangeHandler = (e)=>{
         for (const key in form) {
           data.append(key, form[key]);
         }
+
+        const phoneRegex = /^[0-9]{8}$/;
+        if (!phoneRegex.test(form.phone)) {
+          toast.error('Phone number must be 8 digits.', {
+            position: toast.POSITION.TOP_RIGHT
+          });
+          return;
+        }
+      
         axios
           .put(`http://localhost:3001/agent/updateAg/${id}`,data
           ,{ headers: {

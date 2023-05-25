@@ -33,6 +33,14 @@ data.append('photo',photoAvatar[0])
 
 console.log("fileeeeee",data)
 
+
+const phoneRegex = /^[0-9]{8}$/;
+  if (!phoneRegex.test(phone)) {
+    toast.error('Phone number must be 8 digits.', {
+      position: toast.POSITION.TOP_RIGHT
+    });
+    return;
+  }
   // Handle validations
   axios
     .post("http://localhost:3001/agent/AjoutAg", { Nom, Prenom, email, phone,photoAvatar,gender , role ,DateNaissance ,Nationalite}

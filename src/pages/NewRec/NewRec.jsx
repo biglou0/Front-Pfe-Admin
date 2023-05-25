@@ -27,6 +27,13 @@ console.log("cin",CiN)
         // Prevent the default submit and page reload
         e.preventDefault()
     
+        const CinRegex = /^[0-9]{8}$/;
+        if (!CinRegex.test(CiN)) {
+          toast.error('Cin number must be 8 digits.', {
+            position: toast.POSITION.TOP_RIGHT
+          });
+          return;
+        }
         // Handle validations
         axios
           .post("http://localhost:3001/Rec/add", { titre,objectrec,daterec,CiN,agent })
@@ -45,7 +52,9 @@ console.log("cin",CiN)
          
       .catch(err =>{
         console.warn(err)
-        alert("Please verify your information")
+        toast.error('Verifier Votre information !', {
+          position: toast.POSITION.TOP_RIGHT
+      });
       })
   
         }
